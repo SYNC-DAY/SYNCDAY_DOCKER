@@ -1,0 +1,9 @@
+# jvm.options 내용
+-Xms512m
+-Xmx512m
+
+-XX:+UseG1GC
+-XX:G1ReservePercent=25
+-XX:InitiatingHeapOccupancyPercent=30
+
+-Djava.io.tmpdir=${ES_TMPDIR}

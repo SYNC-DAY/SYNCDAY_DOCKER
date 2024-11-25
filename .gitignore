@@ -1,0 +1,13 @@
+# Elasticsearch data
+data/*
+!data/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Environment variables
+.env
+
+# OS specific
+.DS_Store
