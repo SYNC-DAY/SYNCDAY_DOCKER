@@ -7,7 +7,7 @@ done
 
 # 기존 인덱스 삭제
 echo "Deleting existing indices..."
-curl -X DELETE "localhost:9200/*"
+curl -X DELETE "localhost:9200/user_search,project_search,workspace_search,cardboard_search,card_search,attachment_search,comment_search"
 
 # 각 인덱스 생성
 echo "Creating user_search index..."
