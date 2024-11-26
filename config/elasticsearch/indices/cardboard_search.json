@@ -18,5 +18,16 @@
         }
       }
     }
+  },
+  "mappings": {
+    "properties": {
+      "cardboardId": { "type": "keyword" },
+      "cardboardName": { "type": "text", "analyzer": "nori_mixed" },
+      "workspaceId": { "type": "keyword" },
+      "workspaceName": { "type": "keyword" },
+      "projectId": { "type": "keyword" },
+      "projectName": { "type": "keyword" },
+      "createdAt": { "type": "date" }
+    }
   }
 }

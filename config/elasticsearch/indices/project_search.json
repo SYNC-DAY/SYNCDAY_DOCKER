@@ -1,0 +1,30 @@
+{
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "analysis": {
+        "analyzer": {
+          "nori_mixed": {
+            "type": "custom",
+            "tokenizer": "nori_tokenizer",
+            "filter": ["nori_readingform", "lowercase", "trim", "my_ngram"]
+          }
+        },
+        "filter": {
+          "my_ngram": {
+            "type": "ngram",
+            "min_gram": 1,
+            "max_gram": 1
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "projectId": { "type": "keyword" },
+        "projectName": { "type": "text", "analyzer": "nori_mixed" },
+        "vcsType": { "type": "text", "analyzer": "nori_mixed" },
+        "createdAt": { "type": "date" }
+      }
+    }
+  }

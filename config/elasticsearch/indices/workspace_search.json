@@ -18,5 +18,14 @@
         }
       }
     }
+  },
+  "mappings": {
+    "properties": {
+      "workspaceId": { "type": "keyword" },
+      "workspaceName": { "type": "text", "analyzer": "nori_mixed" },
+      "projectId": { "type": "keyword" },
+      "projectName": { "type": "keyword" },
+      "createdAt": { "type": "date" }
+    }
   }
 }

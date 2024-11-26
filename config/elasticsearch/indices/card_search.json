@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "analyzer": {
+        "nori_mixed": {
+          "type": "custom",
+          "tokenizer": "nori_tokenizer",
+          "filter": ["nori_readingform", "lowercase", "trim", "my_ngram"]
+        }
+      },
+      "filter": {
+        "my_ngram": {
+          "type": "ngram",
+          "min_gram": 1,
+          "max_gram": 1
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "cardId": { "type": "keyword" },
+      "cardTitle": { "type": "text", "analyzer": "nori_mixed" },
+      "cardContent": { "type": "text", "analyzer": "nori_mixed" },
+      "cardboardId": { "type": "keyword" },
+      "cardboardName": { "type": "keyword" },
+      "workspaceId": { "type": "keyword" },
+      "workspaceName": { "type": "keyword" },
+      "projectId": { "type": "keyword" },
+      "projectName": { "type": "keyword" },
+      "tags": { "type": "text", "analyzer": "nori_mixed" },
+      "createdAt": { "type": "date" },
+      "updatedAt": { "type": "date" }
+    }
+  }
+}
