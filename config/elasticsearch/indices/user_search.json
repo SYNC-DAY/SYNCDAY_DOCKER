@@ -1,32 +1,37 @@
 {
-    "settings": {
-      "number_of_shards": 1,
-      "number_of_replicas": 0,
-      "analysis": {
-        "analyzer": {
-          "nori_mixed": {
-            "type": "custom",
-            "tokenizer": "nori_tokenizer",
-            "filter": ["nori_readingform", "lowercase", "trim", "my_ngram"]
-          }
-        },
-        "filter": {
-          "my_ngram": {
-            "type": "ngram",
-            "min_gram": 1,
-            "max_gram": 1
-          }
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "analyzer": {
+        "nori_mixed": {
+          "type": "custom",
+          "tokenizer": "nori_tokenizer",
+          "filter": [
+            "nori_readingform",
+            "lowercase",
+            "trim"
+          ]
         }
       }
-    },
-    "mappings": {
-      "properties": {
-        "userId": { "type": "keyword" },
-        "name": { "type": "text", "analyzer": "nori_mixed" },
-        "email": { "type": "keyword" },
-        "profileImage": { "type": "keyword" },
-        "teamName": { "type": "text", "analyzer": "nori_mixed" },
-        "position": { "type": "keyword" }
-      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "userId": { "type": "keyword" },
+      "name": { 
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "email": { "type": "keyword" },
+      "profileImage": { "type": "keyword" },
+      "teamName": { "type": "text", "analyzer": "nori_mixed" },
+      "position": { "type": "keyword" }
     }
   }
+}

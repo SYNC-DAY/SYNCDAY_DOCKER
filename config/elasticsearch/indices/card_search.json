@@ -7,14 +7,11 @@
         "nori_mixed": {
           "type": "custom",
           "tokenizer": "nori_tokenizer",
-          "filter": ["nori_readingform", "lowercase", "trim", "my_ngram"]
-        }
-      },
-      "filter": {
-        "my_ngram": {
-          "type": "ngram",
-          "min_gram": 1,
-          "max_gram": 1
+          "filter": [
+            "nori_readingform",
+            "lowercase",
+            "trim"
+          ]
         }
       }
     }
